@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPanelim.cshtml";
+}
+
+<h2>Üye Profil Bilgileri</h2>
+
+
+<table class="table table-striped" style="margin-top:30px;">
+
+    <tr> <td>Mail Adresi: @HttpContext.Current.User.Identity.Name</td></tr>
+    <tr> <td> Ad:@Session["AD"] </td></tr>
+    <tr> <td> Soyad:@Session["SOYAD"]</td></tr>
+    <tr> <td> Kullanıcı Adı: @Session["KULLANICIADI"]</td></tr>
+    <tr> <td> Şifre:@Session["SIFRE"]</td></tr>
+   
+    <tr> <td> <button class="btn btn-warning">Şifre güncelle </button></td></tr>
+</table>
+

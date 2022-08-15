@@ -1,0 +1,37 @@
+﻿@using MvcKUTUPHANE.Models.entity
+
+@model List<TBLYAZAR> 
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<table class="table table-striped" style="margin-top:30px;" >
+    <tr style="background-color:rgb(252,178,22)">
+        <th>ID</th>
+        <th>AD</th>
+        <th>SOYAD</th>
+        <th>DETAY</th>
+        <th>SİL</th>
+        <th>GÜNCELLE</th>
+
+    </tr>
+
+    @foreach(var y in Model)
+            {
+                <tr>
+                    <td> @y.ID</td>
+                    <td> @y.AD</td>
+                    <td> @y.SOYAD</td>
+                    <td> @y.DETAY</td>
+                    <td> @Html.ActionLink("Sil", "YazarSil", new {id = y.ID }, new {@class ="btn btn-danger",onclick="return confirm(' Silmek İstiyor Musunuz?')"})</td>
+                    <td> <a href="/Yazar/YazarGetir/@y.ID" class="btn btn-success"> Güncelle</a></td>
+                    
+                </tr>
+            }
+
+
+
+</table>
+<a class="btn btn-primary" href="/Yazar/YazarEkle">Yeni Yazar Ekleme</a>
+

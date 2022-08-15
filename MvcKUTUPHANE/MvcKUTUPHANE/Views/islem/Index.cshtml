@@ -1,0 +1,45 @@
+﻿@using MvcKUTUPHANE.Models.entity
+@model List<TBLHAREKET>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+
+
+<table class="table table-striped" style="margin-top:30px;">
+
+    <tr>
+        <th> İŞLEM ID</th>
+        <th> KİTAP  ADI</th>
+        <th>  Personel İletişim</th>
+        <th> PERSONEL</th>
+        <th> ALIŞ TARİHİ</th>
+        <th> İADE TARİHİ</th>
+        <th> İADE AL</th>
+
+
+    </tr>
+
+    @foreach (var k in Model)
+    {
+            <tr>
+                <td> @k.ID</td>
+                <td>@k.TBLKITAP.AD</td>
+                <td> @k.TBLPERSONEL.NUMARA</td>
+                <td>@k.TBLPERSONEL.PERSONEL</td>
+                <td>@Convert.ToDateTime(k.ALISTARIH).ToString("dd/MM/yyyy")</td>
+                <td>@Convert.ToDateTime(k.IADETARIH).ToString("dd/MM/yyyy")</td>
+                <td> <a href="/Odunc/Odunciade/@k.ID" class="btn btn-danger" style="background-color:#f87cdf;"> Detaylar</a></td>
+
+
+            </tr>
+    }
+
+</table>
+
+
+
+
